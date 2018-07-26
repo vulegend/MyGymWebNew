@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 26, 2018 at 12:11 PM
+-- Generation Time: Jul 26, 2018 at 01:22 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -85,11 +85,13 @@ INSERT INTO `contracts` (`contract_id`, `contract_length`, `contract_package`, `
 
 DROP TABLE IF EXISTS `device`;
 CREATE TABLE IF NOT EXISTS `device` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `img_cnt` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slika` varchar(1024) NOT NULL,
+  `naziv` varchar(100) NOT NULL,
+  `opis` varchar(2500) NOT NULL,
+  `logo` varchar(1024) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -99,21 +101,21 @@ CREATE TABLE IF NOT EXISTS `device` (
 
 DROP TABLE IF EXISTS `gym`;
 CREATE TABLE IF NOT EXISTS `gym` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_bin NOT NULL,
-  `address` varchar(200) COLLATE utf8_bin NOT NULL,
-  `logo` varchar(1024) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  `phone` varchar(15) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `logo` varchar(1024) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `description` varchar(2500) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gym`
 --
 
-INSERT INTO `gym` (`id`, `name`, `address`, `logo`, `description`, `phone`) VALUES
-(1, 'Prva teretana', 'adresa 1', '', 'opis 1', '0635858744'),
-(2, 'druga teretana', 'adresa 2', '', 'opis drugi', '063287455');
+INSERT INTO `gym` (`id`, `logo`, `name`, `address`, `description`, `phone`) VALUES
+(1, '', 'Moja Teretana', 'Pere Kosorica 19', 'Dobra teretana bajo', '+381605704708');
 
 -- --------------------------------------------------------
 
